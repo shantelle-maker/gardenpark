@@ -1,0 +1,7 @@
+{
+    "editor.suggest.showFolders": true,
+    "scm.compactFolders": false,
+    "files.simpleDialog.enable": true,
+    "workbench.tree.expandMode": "singleClick",
+    "window.closeWhenEmpty": true
+}
