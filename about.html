@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Garden Park Hotel</title>
+  <title>About Us | Garden Park Hotel</title>
   <style>
     body {
       margin: 0;
@@ -43,32 +43,6 @@
       text-decoration: underline;
     }
 
-    .hero {
-      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
-      background-size: cover;
-      background-position: center;
-      height: 80vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      position: relative;
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      z-index: 1;
-      position: relative;
-    }
-
     .section {
       padding: 60px 20px;
       max-width: 1200px;
@@ -82,32 +56,44 @@
       color: #2e7d32;
     }
 
-    .services {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+    .section p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
       text-align: center;
     }
 
-    .service-card {
-      padding: 20px;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-      background: #fff;
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
     }
 
-    .service-card img {
+    .feature {
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+
+    .feature img {
       width: 100%;
-      height: 160px;
+      height: 200px;
       object-fit: cover;
       border-radius: 8px;
-      margin-bottom: 15px;
+      margin-bottom: 1rem;
     }
 
-    .service-card h3 {
-      margin-bottom: 10px;
-      font-size: 20px;
+    .feature h3 {
+      margin: 0.5rem 0;
       color: #2e7d32;
     }
 
@@ -154,10 +140,6 @@
     }
 
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 32px;
-      }
-
       .nav-container {
         flex-direction: column;
         align-items: flex-start;
@@ -165,6 +147,10 @@
 
       nav {
         margin-top: 10px;
+      }
+
+      .section h2 {
+        font-size: 28px;
       }
     }
   </style>
@@ -176,7 +162,7 @@
       <div class="logo">Garden Park Hotel</div>
       <nav>
         <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
+        <a href="./about.html" style="text-decoration: underline;">About</a>
         <a href="#">Menu</a>
         <a href="#">Gallery</a>
         <a href="#">Contact</a>
@@ -184,32 +170,27 @@
     </div>
   </header>
 
-  <div class="hero">
-    <h1>Welcome to Garden Park Hotel</h1>
-  </div>
-
   <section class="section">
-    <h2>Our Services</h2>
-    <div class="services">
-      <div class="service-card">
-        <img src="./images/O design de um restaurante de luxo em um hotel é….jpg" alt="Bar & Restaurant">
-        <h3>Bar & Restaurant</h3>
-        <p>Enjoy delicious meals and refreshing drinks in our serene environment.</p>
+    <h2>About Us</h2>
+    <p>
+      Garden Park Hotel in Mumias is your home away from home. From well-furnished rooms and an inviting garden to mouthwatering meals and personalized service, we offer a truly refreshing experience that combines comfort and elegance.
+    </p>
+
+    <div class="features">
+      <div class="feature">
+        <img src="./images/e18695ae-0b57-49f0-917e-db77ca2c5f94.jpg" alt="Elegant Rooms">
+        <h3>Elegant Rooms</h3>
+        <p>Relax in style in our cozy rooms, designed to give you peace and quiet during your stay.</p>
       </div>
-      <div class="service-card">
-        <img src="./images/Jaipur, the Pink City, is a blend of rich history….jpg" alt="Hotel Rooms">
-        <h3>Hotel Rooms</h3>
-        <p>Spacious and affordable rooms for your comfort and relaxation.</p>
+      <div class="feature">
+        <img src="./images/8c996712-464f-4302-bb7b-786263e67a76.jpg" alt="Garden Restaurant">
+        <h3>Garden Restaurant</h3>
+        <p>Enjoy flavorful dishes in our lush garden setup—perfect for families and friends alike.</p>
       </div>
-      <div class="service-card">
+      <div class="feature">
         <img src="./images/fb88c18f-4616-4913-be73-9426ce13a424.jpg" alt="Swimming Pool">
         <h3>Swimming Pool</h3>
-        <p>Dive into fun at our well-maintained swimming pool.</p>
-      </div>
-      <div class="service-card">
-        <img src="./images/bfb78e8c-89c2-44c3-84b1-35566ce99ad0.jpg" alt="Events & Garden">
-        <h3>Events & Garden</h3>
-        <p>Perfect venue for birthdays, weddings, and outdoor events.</p>
+        <p>Cool off in our sparkling clean pool or lounge around in a tranquil poolside atmosphere.</p>
       </div>
     </div>
   </section>
