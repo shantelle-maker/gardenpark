@@ -42,7 +42,45 @@
     nav a:hover {
       text-decoration: underline;
     }
+.hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
 
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #2e7d32;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 20px;
+        z-index: 1000;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+    }
     .hero {
       background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
       background-size: cover;
@@ -190,15 +228,22 @@
   <header>
     <div class="nav-container">
       <div class="logo">Garden Park Hotel</div>
-      <nav>
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./menu.html">Menu</a>
-        <a href="./gallery.html">Gallery</a>
-        <a href="./contact.html">Contact</a>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="navLinks">
+        <a href="./index.html" onclick="closeMenu()">Home</a>
+        <a href="./about.html" onclick="closeMenu()">About</a>
+        <a href="./menu.html" onclick="closeMenu()">Menu</a>
+        <a href="./gallery.html" onclick="closeMenu()">Gallery</a>
+        <a href="./rooms.html" onclick="closeMenu()">Rooms</a>
+        <a href="./contact.html" onclick="closeMenu()">Contact</a>
       </nav>
     </div>
   </header>
+
 
   <div class="hero">
     <h1>Contact Us</h1>
@@ -233,6 +278,7 @@
           <li><a href="./about.html">About</a></li>
           <li><a href="./menu.html">Menu</a></li>
           <li><a href="./gallery.html">Gallery</a></li>
+          <li><a href="./rooms.html">Rooms</a>
           <li><a href="./contact.html">Contact</a></li>
         </ul>
       </div>
@@ -252,6 +298,16 @@
       </div>
     </div>
   </footer>
+ <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("show");
+    }
 
+    function closeMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.remove("show");
+    }
+  </script>
 </body>
 </html>
