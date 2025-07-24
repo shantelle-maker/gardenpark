@@ -16,7 +16,6 @@
       background-color: #2e7d32;
       color: #fff;
       padding: 10px 0;
-      position: relative;
     }
 
     .nav-container {
@@ -26,7 +25,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
-      position: relative;
     }
 
     .logo {
@@ -60,6 +58,7 @@
       width: 25px;
       background: white;
       margin: 4px 0;
+      transition: 0.4s;
     }
 
     @media (max-width: 768px) {
@@ -76,6 +75,7 @@
         left: 0;
         width: 100%;
         padding: 10px 20px;
+        z-index: 1000;
       }
 
       nav.show {
@@ -209,12 +209,12 @@
         <span></span>
       </div>
       <nav id="navLinks">
-        <a href="./index.html">Home</a>
-        <a href="./about.html">About</a>
-        <a href="./menu.html">Menu</a>
-        <a href="./gallery.html">Gallery</a>
-        <a href="./rooms.html">Rooms</a>
-        <a href="./contact.html">Contact</a>
+        <a href="./index.html" onclick="closeMenu()">Home</a>
+        <a href="./about.html" onclick="closeMenu()">About</a>
+        <a href="./menu.html" onclick="closeMenu()">Menu</a>
+        <a href="./gallery.html" onclick="closeMenu()">Gallery</a>
+        <a href="./rooms.html" onclick="closeMenu()">Rooms</a>
+        <a href="./contact.html" onclick="closeMenu()">Contact</a>
       </nav>
     </div>
   </header>
@@ -282,6 +282,10 @@
   <script>
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("show");
+    }
+
+    function closeMenu() {
+      document.getElementById("navLinks").classList.remove("show");
     }
   </script>
 
