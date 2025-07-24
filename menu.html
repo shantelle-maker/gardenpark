@@ -36,7 +36,8 @@
     nav a:hover {
       text-decoration: underline;
     }
-.hamburger {
+
+    .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
@@ -75,6 +76,7 @@
         margin: 10px 0;
       }
     }
+
     .hero {
       background: url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0') center/cover no-repeat;
       height: 250px;
@@ -136,7 +138,8 @@
       font-size: 14px;
       color: #555;
     }
-    .menu-item a{
+
+    .menu-item a {
       color: green;
       text-decoration: none;
       margin-left: 20px;
@@ -216,6 +219,7 @@
       </nav>
     </div>
   </header>
+
   <div class="hero">
     <h2>Our Menu</h2>
   </div>
@@ -244,6 +248,7 @@
           <p>Tea, coffee, and more</p>
           <a href="/bevarages.html">Beverages menu</a>
         </div>
+      </div>
     </div>
   </section>
 
@@ -254,8 +259,8 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="menu.html">Menu</a></li>
-        <li><a href="gallery.html">Gallery</a>
-        <li><a href="rooms.html">Rooms</a>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -277,15 +282,18 @@
       </ul>
     </div>
   </footer>
-<script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('show');
-  }
 
-  function closeMenu() {
-    document.getElementById('navLinks').classList.remove('show');
-  }
-</script>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("show");
+    }
+
+    function closeMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.remove("show");
+    }
+  </script>
 
 </body>
 </html>
