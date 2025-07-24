@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us | Garden Park Hotel</title>
+  <title>Contact | Garden Park Hotel</title>
   <style>
     body {
       margin: 0;
@@ -43,9 +43,35 @@
       text-decoration: underline;
     }
 
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 {
+      font-size: 42px;
+      z-index: 1;
+      position: relative;
+    }
+
     .section {
-      padding: 20px 20px;
-      max-width: 1200px;
+      padding: 30px 20px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -56,45 +82,45 @@
       color: #2e7d32;
     }
 
-    .section p {
-      max-width: 800px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: center;
+    .contact-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 30px;
     }
 
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+    .contact-info, .contact-form {
+      flex: 1;
+      min-width: 300px;
     }
 
-    .feature {
-      background: white;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      transition: transform 0.3s ease;
+    .contact-info p {
+      margin: 15px 0;
+      font-size: 16px;
     }
 
-    .feature:hover {
-      transform: translateY(-5px);
-    }
-
-    .feature img {
+    .contact-form input,
+    .contact-form textarea {
       width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
     }
 
-    .feature h3 {
-      margin: 0.5rem 0;
-      color: #2e7d32;
+    .contact-form button {
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #256528;
     }
 
     .footer {
@@ -140,6 +166,10 @@
     }
 
     @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 30px;
+      }
+
       .nav-container {
         flex-direction: column;
         align-items: flex-start;
@@ -149,8 +179,8 @@
         margin-top: 10px;
       }
 
-      .section h2 {
-        font-size: 28px;
+      .contact-box {
+        flex-direction: column;
       }
     }
   </style>
@@ -162,7 +192,7 @@
       <div class="logo">Garden Park Hotel</div>
       <nav>
         <a href="./index.html">Home</a>
-        <a href="./about.html" style="text-decoration: underline;">About</a>
+        <a href="./about.html">About</a>
         <a href="./menu.html">Menu</a>
         <a href="./gallery.html">Gallery</a>
         <a href="./contact.html">Contact</a>
@@ -170,27 +200,26 @@
     </div>
   </header>
 
-  <section class="section">
-    <h2>About Us</h2>
-    <p>
-      Garden Park Hotel in Mumias is your home away from home. From well-furnished rooms and an inviting garden to mouthwatering meals and personalized service, we offer a truly refreshing experience that combines comfort and elegance.
-    </p>
+  <div class="hero">
+    <h1>Contact Us</h1>
+  </div>
 
-    <div class="features">
-      <div class="feature">
-        <img src="./images/e18695ae-0b57-49f0-917e-db77ca2c5f94.jpg" alt="Elegant Rooms">
-        <h3>Elegant Rooms</h3>
-        <p>Relax in style in our cozy rooms, designed to give you peace and quiet during your stay.</p>
+  <section class="section">
+    <h2>Get in Touch</h2>
+    <div class="contact-box">
+      <div class="contact-info">
+        <p><strong>Phone:</strong> 0701448588</p>
+        <p><strong>Email:</strong> gardenpark@example.com</p>
+        <p><strong>Address:</strong> Mumias, Kakamega County, Kenya</p>
+        <p><strong>Opening Hours:</strong><br> Mon - Sun: 8:00 AM – 11:00 PM</p>
       </div>
-      <div class="feature">
-        <img src="./images/8c996712-464f-4302-bb7b-786263e67a76.jpg" alt="Garden Restaurant">
-        <h3>Garden Restaurant</h3>
-        <p>Enjoy flavorful dishes in our lush garden setup—perfect for families and friends alike.</p>
-      </div>
-      <div class="feature">
-        <img src="./images/fb88c18f-4616-4913-be73-9426ce13a424.jpg" alt="Swimming Pool">
-        <h3>Swimming Pool</h3>
-        <p>Cool off in our sparkling clean pool or lounge around in a tranquil poolside atmosphere.</p>
+      <div class="contact-form">
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
       </div>
     </div>
   </section>

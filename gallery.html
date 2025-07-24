@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Gallery | Garden Park Hotel</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #256528;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 12px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    h2 {
+      color: #2e7d32;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery-item {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .gallery-caption {
+      padding: 10px;
+      text-align: center;
+      color: #444;
+      font-size: 14px;
+    }
+
+    footer {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Garden Park Hotel</h1>
+    <p>Bar | Restaurant | Hotel | Pool</p>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="menu.html">Menu</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="rooms.html">Rooms</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <h2>Photo Gallery</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="./images/… (1).jpeg" alt="Garden View">
+      <div class="gallery-caption">Lush Garden Area</div>
+    </div>
+    <div class="gallery-item">
+      <img src="./images/⭐⭐⭐⭐⭐ _This is, by far, the best_hotel I've ever….jpg" alt="Swimming Pool">
+      <div class="gallery-caption">Crystal Clear Pool</div>
+    </div>
+    <div class="gallery-item">
+      <img src="./images/02e724ef-9874-4dab-b429-c538dab4b706.jpeg" alt="Restaurant">
+      <div class="gallery-caption">Dining & Lounge Area</div>
+    </div>
+    <div class="gallery-item">
+      <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092" alt="Bar Counter">
+      <div class="gallery-caption">Modern Bar Counter</div>
+    </div>
+    <div class="gallery-item">
+      <img src="./images/de492497-36a1-43d4-af62-85cafc7d5ed9.jpg" alt="Hotel Rooms">
+      <div class="gallery-caption">Elegant Hotel Rooms</div>
+    </div>
+        <div class="gallery-item">
+      <img src="./images/Breakfast in bed hotel room service_ Ideas to make….jpg" alt="Breakfast">
+      <div class="gallery-caption">Alacate breakfast </div>
+    </div>
+    <div class="gallery-item">
+      <img src="./images/Welcome to Brunch & Cake City Centre Mirdif! An….jpeg" alt="Resturant">
+      <div class="gallery-caption">Resturant longe area</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./images/af7f6f1c-f9f7-4e07-91c1-9a11f4a25ff1.jpeg" alt="Event Setup">
+      <div class="gallery-caption">Event Setup in Garden</div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Garden Park Hotel. All rights reserved.<br>
+    For reservations call: 0701448588</p>
+  </footer>
+
+</body>
+</html>
