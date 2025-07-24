@@ -32,7 +32,45 @@
       text-decoration: none;
       font-weight: bold;
     }
+.hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
 
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #2e7d32;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 10px 20px;
+        z-index: 1000;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+    }
     h2 {
       color: #2e7d32;
       text-align: center;
@@ -90,14 +128,24 @@
     <p>Bar | Restaurant | Hotel | Pool</p>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="menu.html">Menu</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="rooms.html">Rooms</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Garden Park Hotel</div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="navLinks">
+        <a href="./index.html" onclick="closeMenu()">Home</a>
+        <a href="./about.html" onclick="closeMenu()">About</a>
+        <a href="./menu.html" onclick="closeMenu()">Menu</a>
+        <a href="./gallery.html" onclick="closeMenu()">Gallery</a>
+        <a href="./rooms.html" onclick="closeMenu()">Rooms</a>
+        <a href="./contact.html" onclick="closeMenu()">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <h2>Photo Gallery</h2>
 
