@@ -17,6 +17,21 @@
       color: white;
       padding: 20px 0;
       text-align: center;
+      position: relative;
+    }
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
     }
 
     nav {
@@ -32,7 +47,8 @@
       text-decoration: none;
       font-weight: bold;
     }
-.hamburger {
+
+    .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
@@ -56,8 +72,8 @@
         flex-direction: column;
         background-color: #2e7d32;
         position: absolute;
-        top: 60px;
-        left: 0;
+        top: 80px;
+        right: 0; /* Changed from left: 0 to right: 0 */
         width: 100%;
         padding: 10px 20px;
         z-index: 1000;
@@ -70,7 +86,13 @@
       nav a {
         margin: 10px 0;
       }
+
+      .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
+
     h2 {
       color: #2e7d32;
       text-align: center;
@@ -123,25 +145,24 @@
 </head>
 <body>
 
- 
   <header>
     <div class="nav-container">
       <div class="logo">Garden Park Hotel</div>
-      
+
       <div class="hamburger" onclick="toggleMenu()">
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <nav id="navLinks">
-        <a href="./index.html" onclick="closeMenu()">Home</a>
-        <a href="./about.html" onclick="closeMenu()">About</a>
-        <a href="./menu.html" onclick="closeMenu()">Menu</a>
-        <a href="./gallery.html" onclick="closeMenu()">Gallery</a>
-        <a href="./rooms.html" onclick="closeMenu()">Rooms</a>
-        <a href="./contact.html" onclick="closeMenu()">Contact</a>
-      </nav>
     </div>
+    <nav id="navLinks">
+      <a href="./index.html" onclick="closeMenu()">Home</a>
+      <a href="./about.html" onclick="closeMenu()">About</a>
+      <a href="./menu.html" onclick="closeMenu()">Menu</a>
+      <a href="./gallery.html" onclick="closeMenu()">Gallery</a>
+      <a href="./rooms.html" onclick="closeMenu()">Rooms</a>
+      <a href="./contact.html" onclick="closeMenu()">Contact</a>
+    </nav>
   </header>
 
   <h2>Photo Gallery</h2>
@@ -167,15 +188,14 @@
       <img src="./images/de492497-36a1-43d4-af62-85cafc7d5ed9.jpg" alt="Hotel Rooms">
       <div class="gallery-caption">Elegant Hotel Rooms</div>
     </div>
-        <div class="gallery-item">
+    <div class="gallery-item">
       <img src="./images/Breakfast in bed hotel room service_ Ideas to make….jpg" alt="Breakfast">
-      <div class="gallery-caption">Alacate breakfast </div>
+      <div class="gallery-caption">Alacarte Breakfast</div>
     </div>
     <div class="gallery-item">
-      <img src="./images/Welcome to Brunch & Cake City Centre Mirdif! An….jpeg" alt="Resturant">
-      <div class="gallery-caption">Resturant longe area</div>
+      <img src="./images/Welcome to Brunch & Cake City Centre Mirdif! An….jpeg" alt="Restaurant">
+      <div class="gallery-caption">Restaurant Lounge Area</div>
     </div>
-
     <div class="gallery-item">
       <img src="./images/af7f6f1c-f9f7-4e07-91c1-9a11f4a25ff1.jpeg" alt="Event Setup">
       <div class="gallery-caption">Event Setup in Garden</div>
@@ -186,7 +206,8 @@
     <p>&copy; 2025 Garden Park Hotel. All rights reserved.<br>
     For reservations call: 0701448588</p>
   </footer>
- <script>
+
+  <script>
     function toggleMenu() {
       const nav = document.getElementById("navLinks");
       nav.classList.toggle("show");

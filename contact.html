@@ -42,10 +42,12 @@
     nav a:hover {
       text-decoration: underline;
     }
-.hamburger {
+
+    .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
+      margin-left: auto; /* move to right */
     }
 
     .hamburger span {
@@ -81,6 +83,7 @@
         margin: 10px 0;
       }
     }
+
     .hero {
       background-image: url('https://images.unsplash.com/photo-1600891964599-f61ba0e24092');
       background-size: cover;
@@ -244,7 +247,6 @@
     </div>
   </header>
 
-
   <div class="hero">
     <h1>Contact Us</h1>
   </div>
@@ -278,7 +280,7 @@
           <li><a href="./about.html">About</a></li>
           <li><a href="./menu.html">Menu</a></li>
           <li><a href="./gallery.html">Gallery</a></li>
-          <li><a href="./rooms.html">Rooms</a>
+          <li><a href="./rooms.html">Rooms</a></li>
           <li><a href="./contact.html">Contact</a></li>
         </ul>
       </div>
@@ -298,7 +300,8 @@
       </div>
     </div>
   </footer>
- <script>
+
+  <script>
     function toggleMenu() {
       const nav = document.getElementById("navLinks");
       nav.classList.toggle("show");
