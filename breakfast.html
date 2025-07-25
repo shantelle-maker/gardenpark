@@ -19,30 +19,12 @@
       text-align: center;
     }
 
-    .nav-container {
+    nav {
       background-color: #256028;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px;
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      height: 3px;
-      width: 25px;
-      background: white;
-      margin: 4px 0;
-    }
-
-    nav {
-      display: flex;
+      justify-content: center;
       gap: 30px;
+      padding: 15px;
     }
 
     nav a {
@@ -53,33 +35,6 @@
 
     nav a:hover {
       text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-
-      nav {
-        display: none;
-        flex-direction: column;
-        background-color: #256028;
-        position: absolute;
-        top: 70px;
-        right: 0;
-        width: 100%;
-        text-align: right;
-        padding: 20px;
-        z-index: 1000;
-      }
-
-      nav.show {
-        display: flex;
-      }
-
-      nav a {
-        margin: 10px 0;
-      }
     }
 
     .menu-section {
@@ -156,26 +111,58 @@
     <p>Delicious Breakfast to Start Your Day</p>
   </header>
 
-  <div class="nav-container">
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav id="navLinks">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="menu.html">Menu</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="menu.html">Menu</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <section class="menu-section">
     <h2>Breakfast Menu</h2>
     <div class="menu-grid">
-      <!-- Your menu items (unchanged) -->
-      <!-- ... all your .menu-item divs ... -->
+      <div class="menu-item">
+        <img src="./images/eaef1224-d1e6-4a30-ad1d-1f4c8500a783.jpeg" alt="English Breakfast">
+        <h3>English Breakfast</h3>
+        <p>Eggs, sausages, beans, toast, and tea or coffee. Ksh 450</p>
+      </div>
+      <div class="menu-item">
+        <img src="./images/An overhead picture showing mandazi and two cups….jpeg" alt="Mandazi and Tea">
+        <h3>Mandazi & Tea</h3>
+        <p>Fresh mandazi served with hot African tea. Ksh 200</p>
+      </div>
+            <div class="menu-item">
+        <img src="./images/Amerikanische Pfannkuchen – fluffig & lecker!.jpeg" alt="Pancakes">
+        <h3>Pancakes</h3>
+        <p>Served with syrup and fruit. Ksh 300</p>
+      </div>
+      <div class="menu-item">
+        <img src="./images/e86fcee7-4180-4748-81ad-0fea5b0702a2.jpeg" alt="African Breakfast">
+        <h3>African Breakfast</h3>
+        <p>Served with our african tea. Ksh 300</p>
+      </div>
+      <div class="menu-item">
+        <img src="./images/1453f1d9-7fdb-4b25-8a39-e4a72ef713b2.jpeg" alt="Samosas">
+        <h3>Samosas</h3>
+        <p>Served with beverage of your choice. Ksh 250</p>
+      </div>
+      <div class="menu-item">
+        <img src="./images/566cda76-c682-47d8-9f31-5a242cdb4681.jpeg" alt="Bread toast">
+        <h3>Bread toast</h3>
+        <p>Served tea of your choice. Ksh 300</p>
+      </div>
+      <div class="menu-item">
+        <img src="./images/912d1b2c-c672-416e-9851-a706aca9a7da.jpeg" alt="Mini sausage rolls">
+        <h3>Mini sausage rolls</h3>
+        <p>Severved with a drink of your choice. Ksh 400</p>
+      </div>
+
+      <div class="menu-item">
+        <img src="./images/Cheese omelettes.jpeg" alt="Omelette">
+        <h3>Omelette</h3>
+        <p>Three-egg omelette with onions, tomatoes, and green pepper. Ksh 350</p>
+      </div>
     </div>
   </section>
 
@@ -188,13 +175,6 @@
     </div>
     <p>&copy; 2025 Garden Park Hotel. All rights reserved.</p>
   </footer>
-
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById("navLinks");
-      nav.classList.toggle("show");
-    }
-  </script>
 
 </body>
 </html>
