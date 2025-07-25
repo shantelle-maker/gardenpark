@@ -3,21 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Garden Park Hotel</title>
+  <title>Garden Park Hotel - Rooms</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fff;
+      color: #333;
     }
 
     header {
       background-color: #2e7d32;
-      color: white;
-      padding: 20px;
+      color: #fff;
+      padding: 10px 0;
+    }
+
+    .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
       position: relative;
     }
 
@@ -34,7 +41,11 @@
     nav a {
       color: white;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .hamburger {
@@ -52,13 +63,17 @@
     }
 
     @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
       nav {
         display: none;
         flex-direction: column;
         background-color: #2e7d32;
         position: absolute;
-        top: 70px;
-        right: 0;
+        top: 60px;
+        left : 0;
         width: 100%;
         padding: 10px 20px;
         z-index: 1000;
@@ -72,38 +87,248 @@
         margin: 10px 0;
       }
 
-      .hamburger {
-        display: flex;
-        position: absolute;
-        right: 20px;
-        top: 25px;
+      .nav-container {
+        flex-direction: row;
+        align-items: center;
       }
+
+      nav {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      z-index: 1;
+      position: relative;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #2e7d32;
+    }
+
+    .rooms {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .room-card {
+      background: #fff;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      overflow: hidden;
+      text-align: center;
+      padding-bottom: 20px;
+    }
+
+    .room-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .room-card h3 {
+      color: #2e7d32;
+      margin: 15px 0 10px;
+    }
+
+    .room-card p {
+      margin: 0 15px 10px;
+    }
+
+    .room-card .price {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .room-card button {
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .room-card button:hover {
+      background-color: #256429;
+    }
+
+    .footer {
+      background-color: #2e7d32;
+      color: white;
+      padding: 20px 10px;
+    }
+
+    .footer-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 200px;
+      margin: 10px 0;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 15px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-col ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer-col ul li a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <header>
+
+<header>
+  <div class="nav-container">
     <div class="logo">Garden Park Hotel</div>
     <div class="hamburger" onclick="toggleMenu()">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <nav id="navMenu">
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="menu.html">Menu</a>
-      <a href="rooms.html">Rooms</a>
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
+    <nav id="navLinks">
+      <a href="./index.html" onclick="closeMenu()">Home</a>
+      <a href="./about.html" onclick="closeMenu()">About</a>
+      <a href="./menu.html" onclick="closeMenu()">Menu</a>
+      <a href="./gallery.html" onclick="closeMenu()">Gallery</a>
+      <a href="./rooms.html" onclick="closeMenu()">Rooms</a>
+      <a href="./contact.html" onclick="closeMenu()">Contact</a>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <script>
-    function toggleMenu() {
-      const nav = document.getElementById("navMenu");
-      nav.classList.toggle("show");
-    }
-  </script>
+<div class="hero">
+  <h1>Our Rooms</h1>
+</div>
+
+<section class="section">
+  <h2>Choose Your Room</h2>
+  <div class="rooms">
+    <div class="room-card">
+      <img src="./images/829c9889-0351-4635-83f9-4effb7694e5f.jpeg" alt="Deluxe Room">
+      <h3>Deluxe Room</h3>
+      <p>Spacious room with premium bedding, Wi-Fi, and scenic views.</p>
+      <p class="price">KES 6,000/night</p>
+      <button>Book Now</button>
+    </div>
+    <div class="room-card">
+      <img src="./images/📸 Capturing Luxury & Elegance _ Hotel Photographer in Montreal 🏨✨.jpg" alt="Single Room">
+      <h3>Single Room</h3>
+      <p>Ideal for solo travelers with all essential amenities.</p>
+      <p class="price">KES 3,500/night</p>
+      <button>Book Now</button>
+    </div>
+    <div class="room-card">
+      <img src="./images/Princess Bed Queens Bedding Hotel Bedding Supplies… (1).jpeg" alt="Double Room">
+      <h3>Double Room</h3>
+      <p>Perfect for two guests. Comfortable and stylish interior.</p>
+      <p class="price">KES 5,000/night</p>
+      <button>Book Now</button>
+    </div>
+    <div class="room-card">
+      <img src="./images/8df7285c-c75e-4af8-9e68-996634f3c751.jpeg" alt="Executive Suite">
+      <h3>Executive Suite</h3>
+      <p>Luxury suite with living area, private balcony, and top-class service.</p>
+      <p class="price">KES 9,500/night</p>
+      <button>Book Now</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./menu.html">Menu</a></li>
+        <li><a href="./gallery.html">Gallery</a></li>
+        <li><a href="./rooms.html">Rooms</a></li>
+        <li><a href="./contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact Us</h4>
+      <p>Phone: 0701448588</p>
+      <p>Email: gardenpark@example.com</p>
+      <p>Location: Mumias, Kenya</p>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.toggle("show");
+  }
+
+  function closeMenu() {
+    const nav = document.getElementById("navLinks");
+    nav.classList.remove("show");
+  }
+</script>
+
 </body>
 </html>
