@@ -33,6 +33,11 @@
       font-weight: bold;
     }
 
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
     nav a {
       color: white;
       text-decoration: none;
@@ -73,6 +78,8 @@
         width: 100%;
         padding: 10px 20px;
         z-index: 1000;
+        align-items: flex-end;
+        text-align: right;
       }
 
       nav.show {
@@ -84,8 +91,9 @@
       }
 
       .nav-container {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
       }
     }
 
@@ -183,17 +191,6 @@
 
     .footer-col ul li a:hover {
       text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .section h2 {
-        font-size: 28px;
-      }
-
-      nav {
-        align-items: flex-end;
-        text-align: right;
-      }
     }
   </style>
 </head>
