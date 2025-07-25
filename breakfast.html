@@ -17,6 +17,7 @@
       color: white;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
 
     nav {
@@ -102,6 +103,68 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Hamburger Styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      right: 20px;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      nav {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: #256028;
+        z-index: 999;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+    }
+
+    /* Back button */
+    .back-btn {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-btn a {
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .back-btn a:hover {
+      background-color: #256028;
+    }
   </style>
 </head>
 <body>
@@ -109,6 +172,11 @@
   <header>
     <h1>Garden Park Hotel</h1>
     <p>Delicious Breakfast to Start Your Day</p>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </header>
 
   <nav>
@@ -132,7 +200,7 @@
         <h3>Mandazi & Tea</h3>
         <p>Fresh mandazi served with hot African tea. Ksh 200</p>
       </div>
-            <div class="menu-item">
+      <div class="menu-item">
         <img src="./images/Amerikanische Pfannkuchen – fluffig & lecker!.jpeg" alt="Pancakes">
         <h3>Pancakes</h3>
         <p>Served with syrup and fruit. Ksh 300</p>
@@ -157,12 +225,15 @@
         <h3>Mini sausage rolls</h3>
         <p>Severved with a drink of your choice. Ksh 400</p>
       </div>
-
       <div class="menu-item">
         <img src="./images/Cheese omelettes.jpeg" alt="Omelette">
         <h3>Omelette</h3>
         <p>Three-egg omelette with onions, tomatoes, and green pepper. Ksh 350</p>
       </div>
+    </div>
+
+    <div class="back-btn">
+      <a href="menu.html">Back to Main Menu</a>
     </div>
   </section>
 
@@ -175,6 +246,13 @@
     </div>
     <p>&copy; 2025 Garden Park Hotel. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector("nav");
+      nav.classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>
