@@ -17,6 +17,7 @@
       color: white;
       padding: 20px;
       text-align: center;
+      position: relative;
     }
 
     nav {
@@ -102,11 +103,60 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Hamburger menu styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      position: absolute;
+      top: 25px;
+      left: 20px;
+      z-index: 1100;
+    }
+
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: #256028;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        z-index: 1000;
+      }
+
+      nav.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
     <h1>Garden Park Hotel</h1>
     <p>Delicious Breakfast to Start Your Day</p>
   </header>
@@ -132,7 +182,7 @@
         <h3>Mandazi & Tea</h3>
         <p>Fresh mandazi served with hot African tea. Ksh 200</p>
       </div>
-            <div class="menu-item">
+      <div class="menu-item">
         <img src="./images/Amerikanische Pfannkuchen – fluffig & lecker!.jpeg" alt="Pancakes">
         <h3>Pancakes</h3>
         <p>Served with syrup and fruit. Ksh 300</p>
@@ -157,7 +207,6 @@
         <h3>Mini sausage rolls</h3>
         <p>Severved with a drink of your choice. Ksh 400</p>
       </div>
-
       <div class="menu-item">
         <img src="./images/Cheese omelettes.jpeg" alt="Omelette">
         <h3>Omelette</h3>
@@ -175,6 +224,13 @@
     </div>
     <p>&copy; 2025 Garden Park Hotel. All rights reserved.</p>
   </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.querySelector("nav");
+      nav.classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>
