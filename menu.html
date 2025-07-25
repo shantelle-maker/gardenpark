@@ -2,25 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Garden Park Hotel | Rooms</title>
+  <title>Garden Park Hotel | Menu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
     }
 
     header {
       background-color: #2e7d32;
       color: white;
-      padding: 15px 20px;
+      padding: 10px 0;
     }
 
     .nav-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
     .logo {
@@ -30,13 +34,18 @@
 
     nav {
       display: flex;
-      gap: 15px;
+      align-items: center;
     }
 
     nav a {
       color: white;
+      margin-left: 20px;
       text-decoration: none;
-      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .hamburger {
@@ -54,8 +63,9 @@
     }
 
     @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
+      .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
       }
 
       nav {
@@ -77,69 +87,136 @@
       nav a {
         margin: 10px 0;
       }
+
+      .hamburger {
+        display: flex;
+        order: 2;
+      }
+
+      .logo {
+        order: 1;
+      }
     }
 
-    .rooms {
-      padding: 30px 20px;
-    }
-
-    .rooms h1 {
-      text-align: center;
-      margin-bottom: 40px;
-      color: #2e7d32;
-    }
-
-    .room-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-    }
-
-    .room {
-      background-color: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      text-align: center;
-    }
-
-    .room img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-      border-radius: 10px;
-    }
-
-    .room h3 {
-      margin-top: 15px;
-      color: #2e7d32;
-    }
-
-    .room p {
-      font-weight: bold;
-      color: #444;
-    }
-
-    .room button {
-      background-color: #2e7d32;
+    .hero {
+      background: url('https://images.unsplash.com/photo-1504754524776-8f4f37790ca0') center/cover no-repeat;
+      height: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: white;
-      border: none;
-      padding: 10px 20px;
-      margin-top: 10px;
-      border-radius: 5px;
-      cursor: pointer;
+      text-shadow: 1px 1px 5px black;
     }
 
-    .room button:hover {
-      background-color: #27662c;
+    .hero h2 {
+      font-size: 36px;
+    }
+
+    .menu-section {
+      padding: 3rem 2rem;
+      background-color: #ffffff;
+    }
+
+    .menu-category {
+      margin-bottom: 2.5rem;
+    }
+
+    .menu-category h3 {
+      border-bottom: 2px solid #2e7d32;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      color: #2e7d32;
+    }
+
+    .menu-items {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .menu-item {
+      flex: 1 1 250px;
+      background-color: #f0f4f8;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .menu-item:hover {
+      transform: scale(1.02);
+    }
+
+    .menu-item h4 {
+      margin: 0 0 0.5rem 0;
+      font-size: 18px;
+      color: #2e7d32;
+    }
+
+    .menu-item p {
+      margin: 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .menu-item a {
+      color: green;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 16px;
     }
 
     footer {
       background-color: #2e7d32;
       color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    footer .column {
+      width: 200px;
+      margin-bottom: 1rem;
+    }
+
+    footer h4 {
+      margin-top: 0;
+      border-bottom: 1px solid #c8e6c9;
+      padding-bottom: 0.5rem;
+    }
+
+    footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    footer ul li a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer ul li a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .menu-items {
+        flex-direction: column;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      footer .column {
+        width: 100%;
+      }
     }
   </style>
 </head>
@@ -154,48 +231,77 @@
         <span></span>
       </div>
       <nav id="navLinks">
-        <a href="index.html" onclick="closeMenu()">Home</a>
-        <a href="about.html" onclick="closeMenu()">About</a>
-        <a href="menu.html" onclick="closeMenu()">Menu</a>
-        <a href="gallery.html" onclick="closeMenu()">Gallery</a>
-        <a href="rooms.html" onclick="closeMenu()">Rooms</a>
-        <a href="contact.html" onclick="closeMenu()">Contact</a>
+        <a href="./index.html" onclick="closeMenu()">Home</a>
+        <a href="./about.html" onclick="closeMenu()">About</a>
+        <a href="./menu.html" onclick="closeMenu()">Menu</a>
+        <a href="./gallery.html" onclick="closeMenu()">Gallery</a>
+        <a href="./rooms.html" onclick="closeMenu()">Rooms</a>
+        <a href="./contact.html" onclick="closeMenu()">Contact</a>
       </nav>
     </div>
   </header>
 
-  <section class="rooms">
-    <h1>Our Rooms</h1>
-    <div class="room-grid">
-      <div class="room">
-        <img src="images/deluxe.jpg" alt="Deluxe Room">
-        <h3>Deluxe Room</h3>
-        <p>Ksh 7,500 per night</p>
-        <button>Book Now</button>
-      </div>
-      <div class="room">
-        <img src="images/single.jpg" alt="Single Room">
-        <h3>Single Room</h3>
-        <p>Ksh 4,000 per night</p>
-        <button>Book Now</button>
-      </div>
-      <div class="room">
-        <img src="images/double.jpg" alt="Double Room">
-        <h3>Double Room</h3>
-        <p>Ksh 5,500 per night</p>
-        <button>Book Now</button>
-      </div>
-      <div class="room">
-        <img src="images/family.jpg" alt="Family Room">
-        <h3>Family Room</h3>
-        <p>Ksh 9,000 per night</p>
-        <button>Book Now</button>
+  <div class="hero">
+    <h2>Our Menu</h2>
+  </div>
+
+  <section class="menu-section">
+    <div class="menu-category">
+      <h3>Categories</h3>
+      <div class="menu-items">
+        <div class="menu-item" onclick="location.href='breakfast.html'">
+          <h4>Breakfast</h4>
+          <p>Start your day with energy</p>
+          <a href="./breakfast.html">Breakfast Menu</a>
+        </div>
+        <div class="menu-item" onclick="location.href='maindishes.html'">
+          <h4>Main Dishes</h4>
+          <p>Delicious lunch & dinner options</p>
+          <a href="./maindishes.html">Main Dishes menu</a>
+        </div>
+        <div class="menu-item" onclick="location.href='drinks.html'">
+          <h4>Soft Drinks</h4>
+          <p>Refreshing beverages</p>
+          <a href="/softdrinks.html">Softdrinks menu</a>
+        </div>
+        <div class="menu-item" onclick="location.href='beverages.html'">
+          <h4>Hot Beverages</h4>
+          <p>Tea, coffee, and more</p>
+          <a href="/bevarages.html">Beverages menu</a>
+        </div>
       </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Garden Park Hotel. All rights reserved.</p>
+    <div class="column">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="column">
+      <h4>Contact Us</h4>
+      <ul>
+        <li>Phone: 0701 448 588</li>
+        <li>Email: info@gardenparkhotel.co.ke</li>
+        <li>Location: Mumias, Kenya</li>
+      </ul>
+    </div>
+
+    <div class="column">
+      <h4>Opening Hours</h4>
+      <ul>
+        <li>Mon - Sat: 7am - 11pm</li>
+        <li>Sunday: 8am - 10pm</li>
+      </ul>
+    </div>
   </footer>
 
   <script>
