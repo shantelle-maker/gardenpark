@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Book Your Room</title>
+  <title>Checkout</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -59,6 +59,14 @@
       color: #2e7d32;
     }
 
+    .summary {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
     form {
       background: white;
       padding: 20px;
@@ -108,20 +116,22 @@
   <a href="./index.html">Home</a>
   <a href="./rooms.html">Rooms</a>
   <a href="./booking.html">Bookings</a>
+  <a href="./checkout.html">Checkout</a>
   <a href="./contact.html">Contact</a>
-  <a href="./menu.html">Menu</a>
 </div>
 
-<h2>Book Your Room</h2>
-<form id="bookingForm" action="checkout.html" method="get">
-  <label for="room">Room Type</label>
-  <select name="room" id="room">
-    <option value="Deluxe Room">Deluxe Room</option>
-    <option value="Single Room">Single Room</option>
-    <option value="Double Room">Double Room</option>
-    <option value="Executive Suite">Executive Suite</option>
-  </select>
+<h2>Checkout</h2>
 
+<div class="summary">
+  <h3>Booking Summary</h3>
+  <p><strong>Room:</strong> <span id="room"></span></p>
+  <p><strong>Check-in:</strong> <span id="checkin"></span></p>
+  <p><strong>Check-out:</strong> <span id="checkout"></span></p>
+  <p><strong>Guests:</strong> 2 Adults</p>
+  <p><strong>Total:</strong> <span id="total"></span></p>
+</div>
+
+<form action="#" method="post">
   <label for="name">Full Name</label>
   <input type="text" id="name" name="name" required>
 
@@ -131,13 +141,14 @@
   <label for="phone">Phone Number</label>
   <input type="tel" id="phone" name="phone" required>
 
-  <label for="checkin">Check-in Date</label>
-  <input type="date" id="checkin" name="checkin" required>
+  <label for="payment">Payment Method</label>
+  <select id="payment" name="payment" required>
+    <option value="mpesa">M-Pesa</option>
+    <option value="card">Credit/Debit Card</option>
+    <option value="cash">Pay at Hotel</option>
+  </select>
 
-  <label for="checkout">Check-out Date</label>
-  <input type="date" id="checkout" name="checkout" required>
-
-  <button type="submit">Submit Booking</button>
+  <button type="submit">Confirm and Pay</button>
 </form>
 
 <script>
@@ -145,19 +156,43 @@
     document.getElementById("menu").classList.toggle("show");
   }
 
-  // Save booking details to localStorage before navigating to checkout
-  document.getElementById("bookingForm").addEventListener("submit", function (e) {
-    const bookingDetails = {
-      room: document.getElementById("room").value,
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      phone: document.getElementById("phone").value,
-      checkin: document.getElementById("checkin").value,
-      checkout: document.getElementById("checkout").value,
-    };
+  // Load booking data from localStorage
+  const bookingData = JSON.parse(localStorage.getItem("bookingData"));
 
-    localStorage.setItem("bookingData", JSON.stringify(bookingDetails));
-  });
+  const room = bookingData?.room || "N/A";
+  const checkin = bookingData?.checkin || "N/A";
+  const checkout = bookingData?.checkout || "N/A";
+  const name = bookingData?.name || "";
+  const email = bookingData?.email || "";
+  const phone = bookingData?.phone || "";
+
+  // Pricing per night
+  const pricePerNight = {
+    "Deluxe Room": 6000,
+    "Single Room": 3000,
+    "Double Room": 4500,
+    "Executive Suite": 8000
+  };
+
+  const nights =
+    room !== "N/A" && checkin !== "N/A" && checkout !== "N/A"
+      ? Math.ceil((new Date(checkout) - new Date(checkin)) / (1000 * 60 * 60 * 24))
+      : 0;
+
+  const total = pricePerNight[room] && nights
+    ? "KES " + (pricePerNight[room] * nights).toLocaleString()
+    : "KES 0";
+
+  // Populate booking summary
+  document.getElementById("room").textContent = room;
+  document.getElementById("checkin").textContent = checkin;
+  document.getElementById("checkout").textContent = checkout;
+  document.getElementById("total").textContent = total;
+
+  // Prefill form fields
+  document.getElementById("name").value = name;
+  document.getElementById("email").value = email;
+  document.getElementById("phone").value = phone;
 </script>
 
 </body>

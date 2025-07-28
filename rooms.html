@@ -262,18 +262,16 @@
   <h3>Deluxe Room</h3>
   <p>Spacious room with premium bedding, Wi-Fi, and scenic views.</p>
   <p class="price">KES 6,000/night</p>
-  <a href="booking.html">
-    <button>Book Now</button>
-  </a>
+<button onclick="selectRoom('Deluxe Room', 6000)">Book Now</button>
+
 </div>
     <div class="room-card">
       <img src="./images/📸 Capturing Luxury & Elegance _ Hotel Photographer in Montreal 🏨✨.jpg" alt="Single Room">
       <h3>Single Room</h3>
       <p>Ideal for solo travelers with all essential amenities.</p>
       <p class="price">KES 3,500/night</p>
-      <a href="booking.html">
-      <button>Book Now</button>
-      </a>
+      <button onclick="selectRoom('Deluxe Room', 6000)">Book Now</button>
+
     </div>
     <div class="room-card">
       <img src="./images/Princess Bed Queens Bedding Hotel Bedding Supplies… (1).jpeg" alt="Double Room">
@@ -281,17 +279,15 @@
       <p>Perfect for two guests. Comfortable and stylish interior.</p>
       <p class="price">KES 5,000/night</p>
       <a href="booking.html">
-      <button>Book Now</button>
-      </a>
+<button onclick="selectRoom('Double Room', 5000)">Book Now</button>
+
     </div>
     <div class="room-card">
       <img src="./images/8df7285c-c75e-4af8-9e68-996634f3c751.jpeg" alt="Executive Suite">
       <h3>Executive Suite</h3>
       <p>Luxury suite with living area, private balcony, and top-class service.</p>
       <p class="price">KES 9,500/night</p>
-      <a href="booking.html">
-      <button>Book Now</button>
-      </a>
+<button onclick="selectRoom('Executive Room', 9500)">Book Now</button>
     </div>
   </div>
 </section>
@@ -336,6 +332,12 @@
     const nav = document.getElementById("navLinks");
     nav.classList.remove("show");
   }
+  function selectRoom(roomType, pricePerNight) {
+    localStorage.setItem('selectedRoom', roomType);
+    localStorage.setItem('roomPrice', pricePerNight);
+    window.location.href = 'booking.html';
+  }
+
 </script>
 
 </body>
