@@ -5,53 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Checkout</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f4f4f4;
-      padding: 40px;
+      padding: 40px 20px;
       max-width: 600px;
       margin: auto;
       position: relative;
-    }
-
-    .hamburger {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      cursor: pointer;
-      z-index: 999;
-    }
-
-    .hamburger div {
-      width: 25px;
-      height: 3px;
-      background-color: #2e7d32;
-      margin: 5px 0;
-      transition: 0.4s;
-    }
-
-    .nav-menu {
-      position: fixed;
-      top: 0;
-      right: -200px;
-      width: 200px;
-      height: 100%;
-      background-color: #fff;
-      box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-      transition: right 0.3s ease;
-      padding: 60px 20px;
-    }
-
-    .nav-menu a {
-      display: block;
-      padding: 10px 0;
-      color: #2e7d32;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .nav-menu.show {
-      right: 0;
     }
 
     h2 {
@@ -81,7 +45,8 @@
 
     input, select {
       width: 100%;
-      padding: 10px;
+      padding: 12px;
+      margin-bottom: 15px;
       border: 1px solid #ddd;
       border-radius: 5px;
     }
@@ -89,7 +54,8 @@
     button {
       background-color: #2e7d32;
       color: white;
-      padding: 10px 20px;
+      padding: 12px;
+      font-size: 16px;
       border: none;
       margin-top: 20px;
       border-radius: 5px;
@@ -99,6 +65,37 @@
 
     button:hover {
       background-color: #256429;
+    }
+
+    /* Style the return link after the button */
+    .return-link {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .return-link a {
+      color: #2e7d32;
+      text-decoration: none;
+    }
+
+    .return-link a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 350px) {
+      body {
+        font-size: 14px;
+      }
+
+      h2 {
+        font-size: 20px;
+      }
+
+      .summary, form {
+        padding: 15px;
+      }
     }
   </style>
 </head>
@@ -112,12 +109,8 @@
 </div>
 
 <!-- Slide-in Menu -->
-<div class="nav-menu" id="menu">
-  <a href="./index.html">Home</a>
+<div class="nav-menu" id="menu" style="display: none;">
   <a href="./rooms.html">Rooms</a>
-  <a href="./booking.html">Bookings</a>
-  <a href="./checkout.html">Checkout</a>
-  <a href="./contact.html">Contact</a>
 </div>
 
 <h2>Checkout</h2>
@@ -131,7 +124,7 @@
   <p><strong>Total:</strong> <span id="total"></span></p>
 </div>
 
-<form action="#" method="post">
+<form action="confirmation.html" method="get">
   <label for="name">Full Name</label>
   <input type="text" id="name" name="name" required>
 
@@ -149,13 +142,13 @@
   </select>
 
   <button type="submit">Confirm and Pay</button>
+
+  <div class="return-link">
+    <a href="./rooms.html">Return to Rooms</a>
+  </div>
 </form>
 
 <script>
-  function toggleMenu() {
-    document.getElementById("menu").classList.toggle("show");
-  }
-
   // Load booking data from localStorage
   const bookingData = JSON.parse(localStorage.getItem("bookingData"));
 

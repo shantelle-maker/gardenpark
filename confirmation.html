@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking Confirmed</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      padding: 40px;
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .confirmation-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #2e7d32;
+    }
+
+    p {
+      margin: 10px 0;
+      color: #333;
+    }
+
+    .btn-home {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-home:hover {
+      background-color: #256429;
+    }
+  </style>
+</head>
+<body>
+
+<div class="confirmation-box">
+  <h2>🎉 Booking Confirmed!</h2>
+  <p><strong>Booking ID:</strong> <span id="bookingId"></span></p>
+  <p><strong>Name:</strong> <span id="name"></span></p>
+  <p><strong>Email:</strong> <span id="email"></span></p>
+  <p><strong>Phone:</strong> <span id="phone"></span></p>
+  <p><strong>Room:</strong> <span id="room"></span></p>
+  <p><strong>Check-in:</strong> <span id="checkin"></span></p>
+  <p><strong>Check-out:</strong> <span id="checkout"></span></p>
+  <p><strong>Total:</strong> <span id="total"></span></p>
+
+  <a href="index.html" class="btn-home">Return to Home</a>
+</div>
+
+<script>
+  // Retrieve booking data from localStorage
+  const bookingData = JSON.parse(localStorage.getItem("bookingData"));
+
+  // Generate fake booking ID
+  const bookingId = "GPH" + Math.floor(Math.random() * 90000 + 10000);
+
+  // Fill confirmation details
+  document.getElementById("bookingId").textContent = bookingId;
+  document.getElementById("name").textContent = bookingData?.name || "N/A";
+  document.getElementById("email").textContent = bookingData?.email || "N/A";
+  document.getElementById("phone").textContent = bookingData?.phone || "N/A";
+  document.getElementById("room").textContent = bookingData?.room || "N/A";
+  document.getElementById("checkin").textContent = bookingData?.checkin || "N/A";
+  document.getElementById("checkout").textContent = bookingData?.checkout || "N/A";
+
+  // Total price (same logic as checkout)
+  const pricePerNight = {
+    "Deluxe Room": 6000,
+    "Single Room": 3500,
+    "Double Room": 5000,
+    "Executive Suite": 9500,
+  };
+
+  const nights =
+    bookingData?.room && bookingData?.checkin && bookingData?.checkout
+      ? Math.ceil((new Date(bookingData.checkout) - new Date(bookingData.checkin)) / (1000 * 60 * 60 * 24))
+      : 0;
+
+  const total = pricePerNight[bookingData?.room] && nights
+    ? "KES " + (pricePerNight[bookingData.room] * nights).toLocaleString()
+    : "KES 0";
+
+  document.getElementById("total").textContent = total;
+
+  // Optional: clear localStorage after confirmation
+  // localStorage.removeItem("bookingData");
+</script>
+
+</body>
+</html>
